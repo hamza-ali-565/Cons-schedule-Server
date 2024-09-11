@@ -23,12 +23,12 @@ router.post("/adddoctor", async (req, res) => {
       days,
       timing,
       status,
-      createdUser,
+  
       _id,
     } = req.body;
     console.log("req body", req?.body);
     if (
-      ![name, speciality, specialityId, cnic, days, timing, createdUser].every(
+      ![name, speciality, specialityId, cnic, days, timing].every(
         Boolean
       )
     )
@@ -49,7 +49,6 @@ router.post("/adddoctor", async (req, res) => {
             status,
             days,
             timing,
-            updatedUser: createdUser,
             updatedOn: getCreatedOn(),
           },
         },
@@ -70,7 +69,6 @@ router.post("/adddoctor", async (req, res) => {
       status,
       days,
       timing,
-      createdUser: createdUser,
       createdOn: getCreatedOn(),
     });
     console.log("created", create);
@@ -118,7 +116,6 @@ router.post("/specialty", async (req, res) => {
     if (!_id) {
       const response = await SpecialityModel.create({
         speciality,
-        createdUser: req?.user?.userId,
         createdOn: getCreatedOn(),
       });
       res.status(200).send({ data: response });
@@ -129,7 +126,6 @@ router.post("/specialty", async (req, res) => {
       {
         $set: {
           speciality,
-          updatedUser: req?.user?.userId,
           updatedOn: getCreatedOn(),
         },
       },

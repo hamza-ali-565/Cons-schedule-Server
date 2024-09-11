@@ -28,9 +28,9 @@ import  OPDRoutes  from "./routes/OPD/Opd.routes.mjs";
 // my routes
 app.use("/api/v1", Authentication);
 app.use("/api/v1", Auth);
-app.use("/api/v1", verifyJWT, Prod);
-app.use("/api/v1", verifyJWT, MainData);
-app.use("/api/v1/lab", verifyJWT, LabRoutes);
-app.use("/api/v1/opd", verifyJWT, OPDRoutes);
+app.use("/api/v1", Prod);
+app.use("/api/v1", MainData);
+app.use("/api/v1/lab", LabRoutes);
+app.use("/api/v1/opd", OPDRoutes);
 
 export { app };
