@@ -16,6 +16,8 @@ const consultant = new Schema({
   createdOn: { type: String },
   updatedUser: { type: String },
   updatedOn: { type: String },
+  qualification: { type: String },
+  roomNo: { type: String },
 });
 
 export const ConsultantsModel = mongoose.model("Consultant New", consultant);

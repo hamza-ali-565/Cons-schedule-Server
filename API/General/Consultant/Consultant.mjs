@@ -23,7 +23,8 @@ router.post("/adddoctor", async (req, res) => {
       days,
       timing,
       status,
-  
+      qualification,
+      roomNo,
       _id,
     } = req.body;
     console.log("req body", req?.body);
@@ -49,6 +50,8 @@ router.post("/adddoctor", async (req, res) => {
             status,
             days,
             timing,
+            qualification,
+            roomNo,
             updatedOn: getCreatedOn(),
           },
         },
@@ -69,6 +72,8 @@ router.post("/adddoctor", async (req, res) => {
       status,
       days,
       timing,
+      qualification,
+      roomNo,
       createdOn: getCreatedOn(),
     });
     console.log("created", create);
