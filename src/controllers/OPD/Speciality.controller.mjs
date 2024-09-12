@@ -15,7 +15,7 @@ const ConsultantSchedule = asyncHandler(async (req, res) => {
   const findDRS = await ConsultantsModel.find({
     speciality,
     specialityId,
-  }).select("name  speciality days timing");
+  });
 
   if (findDRS <= 0) throw new ApiError(402, "DATA NOT FOUND !!!");
 
@@ -26,5 +26,4 @@ const ConsultantSchedule = asyncHandler(async (req, res) => {
     );
 });
 
-
-export {ConsultantSchedule}
+export { ConsultantSchedule };
